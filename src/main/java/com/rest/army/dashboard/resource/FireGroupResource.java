@@ -6,7 +6,8 @@ import lombok.Setter;
 /**
  * Created by ionutmihailescu on 12/9/17.
  */
-@Getter @Setter
+@Getter
+@Setter
 public class FireGroupResource {
 
     private Long id;

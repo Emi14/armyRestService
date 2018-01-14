@@ -38,7 +38,7 @@ public class Request {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_tip")
-    private ReportType reportType;
+    private RequestType reportType;
 
     @Column(name = "data_trimitere")
     private Date dispatchDate;
