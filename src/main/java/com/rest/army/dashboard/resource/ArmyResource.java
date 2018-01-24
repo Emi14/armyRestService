@@ -1,9 +1,11 @@
 package com.rest.army.dashboard.resource;
 
+import com.rest.army.dashboard.model.Employee;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import java.util.Set;
 
 /**
  * Created by ionutmihailescu on 1/2/18.

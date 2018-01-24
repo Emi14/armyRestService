@@ -1,5 +1,6 @@
 package com.rest.army.dashboard.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jdk.nashorn.internal.runtime.logging.Logger;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +31,7 @@ public class Employee {
     @Column(name = "id_personal")
     private Long id;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_armata")
     private Army army;
