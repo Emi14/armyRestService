@@ -1,6 +1,5 @@
 package com.rest.army.dashboard.resource;
 
-import com.rest.army.dashboard.model.RequestType;
 import lombok.Getter;
 import lombok.Setter;
 

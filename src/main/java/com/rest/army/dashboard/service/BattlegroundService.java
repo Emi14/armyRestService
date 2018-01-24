@@ -2,7 +2,6 @@ package com.rest.army.dashboard.service;
 
 import com.rest.army.dashboard.mapper.Mapper;
 import com.rest.army.dashboard.model.Battleground;
-import com.rest.army.dashboard.repository.IBattalionRepository;
 import com.rest.army.dashboard.repository.IBattlegroundRepository;
 import com.rest.army.dashboard.resource.BattlegroundResource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +27,19 @@ public class BattlegroundService {
         List<Battleground> battlegrounds = battlegroundRepository.findAll();
         mapper.mapAsCollection(battlegrounds, battlegroundResources, BattlegroundResource.class);
         return battlegroundResources;
+    }
+
+    public BattlegroundResource findById(Long battlegroundId) {
+        BattlegroundResource battlegroundResource = new BattlegroundResource();
+        mapper.map(battlegroundRepository.findOne(battlegroundId),battlegroundResource);
+        return battlegroundResource;
+    }
+
+    public BattlegroundResource save(BattlegroundResource battlegroundResource) {
+        Battleground battleground = new Battleground();
+        mapper.map(battlegroundResource,battleground);
+        battleground = battlegroundRepository.saveAndFlush(battleground);
+        mapper.map(battleground,battlegroundResource);
+        return battlegroundResource;
     }
 }

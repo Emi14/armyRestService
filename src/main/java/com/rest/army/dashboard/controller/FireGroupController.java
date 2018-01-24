@@ -1,13 +1,11 @@
 package com.rest.army.dashboard.controller;
 
 import com.rest.army.dashboard.mapper.Mapper;
-import com.rest.army.dashboard.model.FireGroup;
 import com.rest.army.dashboard.repository.IFireGroupRepository;
 import com.rest.army.dashboard.resource.FireGroupResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

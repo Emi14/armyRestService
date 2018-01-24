@@ -1,7 +1,5 @@
 package com.rest.army.dashboard.resource;
 
-import com.rest.army.dashboard.model.Army;
-import com.rest.army.dashboard.model.Role;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -34,4 +34,10 @@ public class ArmyService {
         mapper.map(armyRepository.findOne(armyId),armyResource);
         return armyResource;
     }
+
+    public void save(ArmyResource armyResource) {
+        Army army = new Army();
+        mapper.map(armyResource,army);
+        armyRepository.saveAndFlush(army);
+    }
 }
