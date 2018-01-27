@@ -35,9 +35,11 @@ public class MissionService {
     }
 
 
-    public void saveMissionResource(MissionResource missionResource) {
+    public MissionResource saveMissionResource(MissionResource missionResource) {
         Mission mission = new Mission();
         mapper.map(missionResource, mission);
-        missionRepository.saveAndFlush(mission);
+        mission = missionRepository.saveAndFlush(mission);
+        mapper.map(mission, missionResource);
+        return missionResource;
     }
 }

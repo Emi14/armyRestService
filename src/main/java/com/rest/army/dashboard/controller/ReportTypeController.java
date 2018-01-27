@@ -32,8 +32,8 @@ public class ReportTypeController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveReport(@RequestBody ReportTypeResource reportTypeResource) {
-        reportTypeService.saveReport(reportTypeResource);
+    public ResponseEntity saveReport(@RequestBody ReportTypeResource reportTypeResource) {
+        return new ResponseEntity<>(reportTypeService.saveReport(reportTypeResource), HttpStatus.OK);
     }
 }
 

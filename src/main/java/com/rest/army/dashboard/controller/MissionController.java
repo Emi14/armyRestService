@@ -32,7 +32,7 @@ public class MissionController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveMission(@RequestBody MissionResource missionResource) {
-        missionService.saveMissionResource(missionResource);
+    public ResponseEntity saveMission(@RequestBody MissionResource missionResource) {
+        return new ResponseEntity<>(missionService.saveMissionResource(missionResource), HttpStatus.OK);
     }
 }

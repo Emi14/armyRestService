@@ -34,9 +34,11 @@ public class CountryService {
         return countryResource;
     }
 
-    public void save(CountryResource countryResource) {
+    public CountryResource save(CountryResource countryResource) {
         Country country = new Country();
         mapper.map(countryResource, country);
-        countryRepository.saveAndFlush(country);
+        country = countryRepository.saveAndFlush(country);
+        mapper.map(country, countryResource);
+        return countryResource;
     }
 }

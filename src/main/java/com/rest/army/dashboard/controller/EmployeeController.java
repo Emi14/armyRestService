@@ -3,7 +3,6 @@ package com.rest.army.dashboard.controller;
 import com.rest.army.dashboard.resource.EmployeeResource;
 import com.rest.army.dashboard.resource.RoleResource;
 import com.rest.army.dashboard.service.EmployeeService;
-import com.rest.army.dashboard.service.ReportService;
 import com.rest.army.dashboard.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +38,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity saveEmployee(@RequestBody EmployeeResource employeeResource) {
-        return new ResponseEntity<>(employeeService.saveEmployeeResource(employeeResource) ,HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.saveEmployeeResource(employeeResource), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/role/getAll", method = RequestMethod.GET)
@@ -53,8 +52,8 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/role/save", method = RequestMethod.POST)
-    public void saveRole(@RequestBody RoleResource roleResource) {
-        roleService.save(roleResource);
+    public ResponseEntity saveRole(@RequestBody RoleResource roleResource) {
+        return new ResponseEntity<>(roleService.save(roleResource), HttpStatus.OK);
     }
 
 }

@@ -38,7 +38,7 @@ public class EmployeeService {
         Employee employee = new Employee();
         mapper.map(employeeResource, employee);
         employee = employeeRepository.saveAndFlush(employee);
-        mapper.map(employee,employeeResource);
+        mapper.map(employee, employeeResource);
         return employeeResource;
     }
 }

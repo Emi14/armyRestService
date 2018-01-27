@@ -1,6 +1,5 @@
 package com.rest.army.dashboard.controller;
 
-import com.rest.army.dashboard.resource.ArmyResource;
 import com.rest.army.dashboard.resource.ArmySaveResource;
 import com.rest.army.dashboard.service.ArmyService;
 import org.springframework.beans.factory.annotation.Autowired;

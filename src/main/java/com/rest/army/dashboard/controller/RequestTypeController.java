@@ -32,8 +32,8 @@ public class RequestTypeController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveRequest(@RequestBody RequestTypeResource requestTypeResource) {
-        requestTypeService.saveRequest(requestTypeResource);
+    public ResponseEntity saveRequest(@RequestBody RequestTypeResource requestTypeResource) {
+        return new ResponseEntity<>(requestTypeService.saveRequest(requestTypeResource), HttpStatus.OK);
     }
 
 }

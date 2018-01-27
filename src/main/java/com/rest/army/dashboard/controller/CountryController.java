@@ -32,8 +32,8 @@ public class CountryController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void getAllCountries(@RequestBody CountryResource countryResource) {
-        countryService.save(countryResource);
+    public ResponseEntity save(@RequestBody CountryResource countryResource) {
+        return new ResponseEntity<>(countryService.save(countryResource), HttpStatus.OK);
     }
 
 }

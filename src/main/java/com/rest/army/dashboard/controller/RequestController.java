@@ -32,8 +32,8 @@ public class RequestController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveRequest(@RequestBody RequestResource requestResource) {
-        requestService.saveRequest(requestResource);
+    public ResponseEntity saveRequest(@RequestBody RequestResource requestResource) {
+        return new ResponseEntity<>(requestService.saveRequest(requestResource), HttpStatus.OK);
     }
 
 }

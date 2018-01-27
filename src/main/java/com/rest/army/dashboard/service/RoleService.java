@@ -22,21 +22,23 @@ public class RoleService {
     @Autowired
     private Mapper mapper;
 
-    public List<RoleResource> findAll(){
+    public List<RoleResource> findAll() {
         List<RoleResource> roleResources = new ArrayList<>();
-        mapper.mapAsCollection(roleRepository.findAll(),roleResources,RoleResource.class);
+        mapper.mapAsCollection(roleRepository.findAll(), roleResources, RoleResource.class);
         return roleResources;
     }
 
-    public RoleResource findById(Long roleId){
+    public RoleResource findById(Long roleId) {
         RoleResource roleResource = new RoleResource();
-        mapper.map(roleRepository.findOne(roleId),roleResource);
+        mapper.map(roleRepository.findOne(roleId), roleResource);
         return roleResource;
     }
 
-    public void save(RoleResource roleResource){
+    public RoleResource save(RoleResource roleResource) {
         Role role = new Role();
-        mapper.map(roleResource,role);
-        roleRepository.saveAndFlush(role);
+        mapper.map(roleResource, role);
+        role = roleRepository.saveAndFlush(role);
+        mapper.map(role, roleResource);
+        return roleResource;
     }
 }

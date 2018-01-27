@@ -34,9 +34,11 @@ public class ReportTypeService {
         return reportTypeResource;
     }
 
-    public void saveReport(ReportTypeResource reportTypeResource) {
+    public ReportTypeResource saveReport(ReportTypeResource reportTypeResource) {
         ReportType reportType = new ReportType();
         mapper.map(reportTypeResource, reportType);
-        reportTypeRepository.saveAndFlush(reportType);
+        reportType = reportTypeRepository.saveAndFlush(reportType);
+        mapper.map(reportType, reportTypeResource);
+        return reportTypeResource;
     }
 }

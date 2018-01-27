@@ -40,7 +40,7 @@ public class ArmyService {
         Army army = new Army();
         mapper.map(armyResource, army);
         army = armyRepository.saveAndFlush(army);
-        mapper.map(army,armyResource);
+        mapper.map(army, armyResource);
         return armyResource;
     }
 }

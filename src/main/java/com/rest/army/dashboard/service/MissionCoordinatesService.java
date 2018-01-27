@@ -36,9 +36,11 @@ public class MissionCoordinatesService {
         return missionCoordinatesResource;
     }
 
-    public void saveReport(MissionCoordinatesResource missionCoordinatesResource) {
+    public MissionCoordinatesResource saveMissionCoordinates(MissionCoordinatesResource missionCoordinatesResource) {
         MissionCoordinates missionCoordinates = new MissionCoordinates();
         mapper.map(missionCoordinatesResource, missionCoordinates);
-        missionCoordinatesRepository.saveAndFlush(missionCoordinates);
+        missionCoordinates = missionCoordinatesRepository.saveAndFlush(missionCoordinates);
+        mapper.map(missionCoordinates, missionCoordinatesResource);
+        return missionCoordinatesResource;
     }
 }

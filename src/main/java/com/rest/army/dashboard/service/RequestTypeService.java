@@ -34,9 +34,11 @@ public class RequestTypeService {
         return requestTypeResource;
     }
 
-    public void saveRequest(RequestTypeResource requestTypeResource) {
+    public RequestTypeResource saveRequest(RequestTypeResource requestTypeResource) {
         RequestType requestType = new RequestType();
         mapper.map(requestTypeResource, requestType);
-        requestTypeRepository.saveAndFlush(requestType);
+        requestType = requestTypeRepository.saveAndFlush(requestType);
+        mapper.map(requestType, requestTypeResource);
+        return requestTypeResource;
     }
 }

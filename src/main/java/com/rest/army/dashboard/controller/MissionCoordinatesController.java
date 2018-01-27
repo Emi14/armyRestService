@@ -32,7 +32,7 @@ public class MissionCoordinatesController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveReport(@RequestBody MissionCoordinatesResource missionCoordinatesResource) {
-        missionCoordinatesService.saveReport(missionCoordinatesResource);
+    public ResponseEntity saveReport(@RequestBody MissionCoordinatesResource missionCoordinatesResource) {
+        return new ResponseEntity<>(missionCoordinatesService.saveMissionCoordinates(missionCoordinatesResource), HttpStatus.OK);
     }
 }

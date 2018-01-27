@@ -34,9 +34,11 @@ public class RequestService {
         return requestResource;
     }
 
-    public void saveRequest(RequestResource requestResource) {
+    public RequestResource saveRequest(RequestResource requestResource) {
         Request request = new Request();
         mapper.map(requestRepository, request);
-        requestRepository.saveAndFlush(request);
+        request = requestRepository.saveAndFlush(request);
+        mapper.map(request, requestResource);
+        return requestResource;
     }
 }
