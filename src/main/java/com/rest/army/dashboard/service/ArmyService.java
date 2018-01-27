@@ -4,6 +4,7 @@ import com.rest.army.dashboard.mapper.Mapper;
 import com.rest.army.dashboard.model.Army;
 import com.rest.army.dashboard.repository.IArmyRepository;
 import com.rest.army.dashboard.resource.ArmyResource;
+import com.rest.army.dashboard.resource.ArmySaveResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,9 +36,11 @@ public class ArmyService {
         return armyResource;
     }
 
-    public void save(ArmyResource armyResource) {
+    public ArmySaveResource save(ArmySaveResource armyResource) {
         Army army = new Army();
         mapper.map(armyResource, army);
-        armyRepository.saveAndFlush(army);
+        army = armyRepository.saveAndFlush(army);
+        mapper.map(army,armyResource);
+        return armyResource;
     }
 }

@@ -38,8 +38,8 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveEmployee(@RequestBody EmployeeResource employeeResource) {
-        employeeService.saveEmployeeResource(employeeResource);
+    public ResponseEntity saveEmployee(@RequestBody EmployeeResource employeeResource) {
+        return new ResponseEntity<>(employeeService.saveEmployeeResource(employeeResource) ,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/role/getAll", method = RequestMethod.GET)

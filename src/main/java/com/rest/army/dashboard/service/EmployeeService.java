@@ -34,9 +34,11 @@ public class EmployeeService {
         return employeeResource;
     }
 
-    public void saveEmployeeResource(EmployeeResource employeeResource) {
+    public EmployeeResource saveEmployeeResource(EmployeeResource employeeResource) {
         Employee employee = new Employee();
         mapper.map(employeeResource, employee);
-        employeeRepository.saveAndFlush(employee);
+        employee = employeeRepository.saveAndFlush(employee);
+        mapper.map(employee,employeeResource);
+        return employeeResource;
     }
 }

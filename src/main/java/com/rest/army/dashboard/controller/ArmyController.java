@@ -1,6 +1,7 @@
 package com.rest.army.dashboard.controller;
 
 import com.rest.army.dashboard.resource.ArmyResource;
+import com.rest.army.dashboard.resource.ArmySaveResource;
 import com.rest.army.dashboard.service.ArmyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,8 +33,8 @@ public class ArmyController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveArmy(@RequestBody ArmyResource armyResource) {
-        armyService.save(armyResource);
+    public ResponseEntity saveArmy(@RequestBody ArmySaveResource armyResource) {
+        return new ResponseEntity<>(armyService.save(armyResource), HttpStatus.OK);
     }
 
 }
