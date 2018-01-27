@@ -16,7 +16,7 @@ import javax.annotation.PostConstruct;
 public class Mapper extends ConfigurableMapper {
 
     @PostConstruct
-    public void init(){
+    public void init() {
         final MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 
         mapperFactory.classMap(FireGroup.class, FireGroupResource.class)

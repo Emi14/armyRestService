@@ -21,7 +21,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Grupa")
-@Getter @Setter
+@Getter
+@Setter
 public class Group {
 
     @Id

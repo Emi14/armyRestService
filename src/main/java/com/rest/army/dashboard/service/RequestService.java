@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ionutmihailescu on 1/24/18.
@@ -23,21 +22,21 @@ public class RequestService {
     @Autowired
     private Mapper mapper;
 
-    public List<RequestResource> findAll(){
+    public List<RequestResource> findAll() {
         List<RequestResource> requestResources = new ArrayList<>();
-        mapper.mapAsCollection(requestRepository.findAll(),requestResources,RequestResource.class);
+        mapper.mapAsCollection(requestRepository.findAll(), requestResources, RequestResource.class);
         return requestResources;
     }
 
-    public RequestResource findById(Long requestId){
-        RequestResource requestResource =  new RequestResource();
-        mapper.map(requestRepository.findOne(requestId),requestResource);
+    public RequestResource findById(Long requestId) {
+        RequestResource requestResource = new RequestResource();
+        mapper.map(requestRepository.findOne(requestId), requestResource);
         return requestResource;
     }
 
-    public void saveRequest(RequestResource requestResource){
+    public void saveRequest(RequestResource requestResource) {
         Request request = new Request();
-        mapper.map(requestRepository,request);
+        mapper.map(requestRepository, request);
         requestRepository.saveAndFlush(request);
     }
 }

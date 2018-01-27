@@ -22,17 +22,17 @@ public class MissionController {
     private MissionService missionService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public ResponseEntity getAllMissions(){
+    public ResponseEntity getAllMissions() {
         return new ResponseEntity<>(missionService.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{missionId}", method = RequestMethod.GET)
-    public ResponseEntity getMissionById(@PathVariable(value = "missionId") Long missionId){
+    public ResponseEntity getMissionById(@PathVariable(value = "missionId") Long missionId) {
         return new ResponseEntity<>(missionService.findById(missionId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveMission(@RequestBody MissionResource missionResource){
+    public void saveMission(@RequestBody MissionResource missionResource) {
         missionService.saveMissionResource(missionResource);
     }
 }

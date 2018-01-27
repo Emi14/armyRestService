@@ -22,21 +22,21 @@ public class EmployeeService {
     @Autowired
     private Mapper mapper;
 
-    public List<EmployeeResource> findAll(){
+    public List<EmployeeResource> findAll() {
         List<EmployeeResource> employeeResources = new ArrayList<>();
-        mapper.mapAsCollection(employeeRepository.findAll(),employeeResources,EmployeeResource.class);
+        mapper.mapAsCollection(employeeRepository.findAll(), employeeResources, EmployeeResource.class);
         return employeeResources;
     }
 
     public EmployeeResource findById(Long employeeId) {
         EmployeeResource employeeResource = new EmployeeResource();
-        mapper.map(employeeRepository.findOne(employeeId),employeeResource);
+        mapper.map(employeeRepository.findOne(employeeId), employeeResource);
         return employeeResource;
     }
 
-    public void saveEmployeeResource(EmployeeResource employeeResource){
+    public void saveEmployeeResource(EmployeeResource employeeResource) {
         Employee employee = new Employee();
-        mapper.map(employeeResource,employee);
+        mapper.map(employeeResource, employee);
         employeeRepository.saveAndFlush(employee);
     }
 }

@@ -20,7 +20,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "grup_de_foc")
-@Getter @Setter
+@Getter
+@Setter
 public class FireGroup {
 
     @Id

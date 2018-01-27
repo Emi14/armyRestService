@@ -21,9 +21,9 @@ public class ArmyCorpService {
     @Autowired
     private Mapper mapper;
 
-    public List<ArmyCorpResource> findAll(){
+    public List<ArmyCorpResource> findAll() {
         List<ArmyCorpResource> armyCorpResources = new ArrayList<>();
-        mapper.mapAsCollection(armyCorpRepository.findAll(),armyCorpResources,ArmyCorpResource.class);
+        mapper.mapAsCollection(armyCorpRepository.findAll(), armyCorpResources, ArmyCorpResource.class);
         return armyCorpResources;
     }
 }

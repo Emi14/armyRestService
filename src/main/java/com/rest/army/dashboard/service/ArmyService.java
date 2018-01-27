@@ -18,12 +18,12 @@ import java.util.List;
 public class ArmyService {
 
     @Autowired
-    private IArmyRepository  armyRepository;
+    private IArmyRepository armyRepository;
 
     @Autowired
     private Mapper mapper;
 
-    public List<ArmyResource> findAll(){
+    public List<ArmyResource> findAll() {
         List<ArmyResource> armyResources = new ArrayList<>();
         mapper.mapAsCollection(armyRepository.findAll(), armyResources, ArmyResource.class);
         return armyResources;
@@ -31,13 +31,13 @@ public class ArmyService {
 
     public ArmyResource findById(Long armyId) {
         ArmyResource armyResource = new ArmyResource();
-        mapper.map(armyRepository.findOne(armyId),armyResource);
+        mapper.map(armyRepository.findOne(armyId), armyResource);
         return armyResource;
     }
 
     public void save(ArmyResource armyResource) {
         Army army = new Army();
-        mapper.map(armyResource,army);
+        mapper.map(armyResource, army);
         armyRepository.saveAndFlush(army);
     }
 }

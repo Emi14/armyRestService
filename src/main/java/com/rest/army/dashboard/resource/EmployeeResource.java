@@ -1,5 +1,6 @@
 package com.rest.army.dashboard.resource;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,9 @@ public class EmployeeResource {
     private Long countryId;
     private String lastName;
     private String firstName;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date birthDate;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date hireDate;
     private String cnp;
     private Double salary;

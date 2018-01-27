@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Created by ionutmihailescu on 12/9/17.
  */
 @Repository
-public interface IFireGroupRepository extends JpaRepository<FireGroup,Long> {
+public interface IFireGroupRepository extends JpaRepository<FireGroup, Long> {
 }

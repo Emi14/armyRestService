@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * Created by ionutmihailescu on 12/26/17.
  */
 @Entity
-@Table(name = "tipuri_de_misiune")
+@Table(name = "tipuri_de_misiuni")
 @Getter
 @Setter
 public class MissionType {

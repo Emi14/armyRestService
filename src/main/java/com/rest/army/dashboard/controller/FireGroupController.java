@@ -27,10 +27,10 @@ public class FireGroupController {
     @Autowired
     private Mapper mapper;
 
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET)
-    public HttpEntity<List<FireGroupResource>> getFireGroup(){
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public HttpEntity<List<FireGroupResource>> getFireGroup() {
         List<FireGroupResource> fireGroupResources = new ArrayList<>();
-        mapper.mapAsCollection(fireGroupRepository.findAll(),fireGroupResources,FireGroupResource.class);
+        mapper.mapAsCollection(fireGroupRepository.findAll(), fireGroupResources, FireGroupResource.class);
         return new ResponseEntity<>(fireGroupResources, HttpStatus.OK);
     }
 

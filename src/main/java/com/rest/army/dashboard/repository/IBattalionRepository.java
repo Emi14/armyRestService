@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Created by ionutmihailescu on 1/2/18.
  */
 @Repository
-public interface IBattalionRepository extends JpaRepository<Battalion,Long>{
+public interface IBattalionRepository extends JpaRepository<Battalion, Long> {
 }

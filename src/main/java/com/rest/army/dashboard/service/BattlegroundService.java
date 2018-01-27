@@ -22,7 +22,7 @@ public class BattlegroundService {
     @Autowired
     private Mapper mapper;
 
-    public List<BattlegroundResource> findAll(){
+    public List<BattlegroundResource> findAll() {
         List<BattlegroundResource> battlegroundResources = new ArrayList<>();
         List<Battleground> battlegrounds = battlegroundRepository.findAll();
         mapper.mapAsCollection(battlegrounds, battlegroundResources, BattlegroundResource.class);
@@ -31,15 +31,15 @@ public class BattlegroundService {
 
     public BattlegroundResource findById(Long battlegroundId) {
         BattlegroundResource battlegroundResource = new BattlegroundResource();
-        mapper.map(battlegroundRepository.findOne(battlegroundId),battlegroundResource);
+        mapper.map(battlegroundRepository.findOne(battlegroundId), battlegroundResource);
         return battlegroundResource;
     }
 
     public BattlegroundResource save(BattlegroundResource battlegroundResource) {
         Battleground battleground = new Battleground();
-        mapper.map(battlegroundResource,battleground);
+        mapper.map(battlegroundResource, battleground);
         battleground = battlegroundRepository.saveAndFlush(battleground);
-        mapper.map(battleground,battlegroundResource);
+        mapper.map(battleground, battlegroundResource);
         return battlegroundResource;
     }
 }

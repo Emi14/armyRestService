@@ -22,21 +22,21 @@ public class ReportService {
     @Autowired
     private Mapper mapper;
 
-    public List<ReportResource> findAll(){
+    public List<ReportResource> findAll() {
         List<ReportResource> reportResources = new ArrayList<>();
-        mapper.mapAsCollection(reportRepository.findAll(),reportResources,ReportResource.class);
+        mapper.mapAsCollection(reportRepository.findAll(), reportResources, ReportResource.class);
         return reportResources;
     }
 
-    public ReportResource findById(Long reportId){
+    public ReportResource findById(Long reportId) {
         ReportResource reportResource = new ReportResource();
-        mapper.map(reportRepository.findOne(reportId),reportResource);
+        mapper.map(reportRepository.findOne(reportId), reportResource);
         return reportResource;
     }
 
-    public void saveReport(ReportResource reportResource){
+    public void saveReport(ReportResource reportResource) {
         Report report = new Report();
-        mapper.map(reportResource,report);
+        mapper.map(reportResource, report);
         reportRepository.saveAndFlush(report);
     }
 }

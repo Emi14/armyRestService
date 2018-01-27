@@ -21,17 +21,17 @@ public class ArmyController {
     @Autowired
     private ArmyService armyService;
 
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public ResponseEntity getAllArmies() {
         return new ResponseEntity<>(armyService.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{armyId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{armyId}", method = RequestMethod.GET)
     public ResponseEntity getArmyById(@PathVariable(value = "armyId") Long armyId) {
         return new ResponseEntity<>(armyService.findById(armyId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void saveArmy(@RequestBody ArmyResource armyResource) {
         armyService.save(armyResource);
     }

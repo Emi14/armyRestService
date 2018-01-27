@@ -18,7 +18,7 @@ import java.util.Date;
  * Created by ionutmihailescu on 12/26/17.
  */
 @Entity
-@Table(name = "misiune")
+@Table(name = "misiuni")
 @Getter
 @Setter
 public class Mission {
@@ -28,13 +28,13 @@ public class Mission {
     @Column(name = "id_misiune")
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_teatru")
     private Battleground battleground;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_tip_misiune")
-    private MissionType missionType;
+//    @ManyToOne(cascade = CascadeType.REFRESH)
+//    @JoinColumn(name = "id_tip_misiune", referencedColumnName = "id")
+//    private MissionType missionType;
 
     @Column(name = "stare")
     private String phase;

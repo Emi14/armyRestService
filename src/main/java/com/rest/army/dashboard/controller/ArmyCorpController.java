@@ -18,7 +18,7 @@ public class ArmyCorpController {
     @Autowired
     private ArmyCorpService armyCorpService;
 
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET,produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
     public ResponseEntity getAllArmyCorps() {
         return new ResponseEntity(armyCorpService.findAll(), HttpStatus.OK);
     }

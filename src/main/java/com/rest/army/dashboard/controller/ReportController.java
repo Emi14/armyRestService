@@ -22,17 +22,17 @@ public class ReportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public ResponseEntity getAllReports(){
+    public ResponseEntity getAllReports() {
         return new ResponseEntity<>(reportService.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{reportId}", method = RequestMethod.GET)
-    public ResponseEntity getReportById(@PathVariable("reportId") Long reportId){
+    public ResponseEntity getReportById(@PathVariable("reportId") Long reportId) {
         return new ResponseEntity<>(reportService.findById(reportId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveReport(@RequestBody ReportResource reportResource){
+    public void saveReport(@RequestBody ReportResource reportResource) {
         reportService.saveReport(reportResource);
     }
 }

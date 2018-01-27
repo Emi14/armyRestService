@@ -21,19 +21,19 @@ public class BattlegroundController {
     @Autowired
     private BattlegroundService battlegroundService;
 
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public ResponseEntity getAllBattlegrounds() {
-        return new ResponseEntity<>(battlegroundService.findAll(),HttpStatus.OK);
+        return new ResponseEntity<>(battlegroundService.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{battlegroundId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{battlegroundId}", method = RequestMethod.GET)
     public ResponseEntity getBattlegroundById(@PathVariable(value = "battlegroundId") Long battlegroundId) {
-        return new ResponseEntity<>(battlegroundService.findById(battlegroundId),HttpStatus.OK);
+        return new ResponseEntity<>(battlegroundService.findById(battlegroundId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity saveBattleground(@RequestBody BattlegroundResource battlegroundResource) {
-        return new ResponseEntity<>(battlegroundService.save(battlegroundResource),HttpStatus.OK);
+        return new ResponseEntity<>(battlegroundService.save(battlegroundResource), HttpStatus.OK);
     }
 
 }

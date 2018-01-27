@@ -22,17 +22,17 @@ public class RequestController {
     private RequestService requestService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public ResponseEntity getAllResquests(){
+    public ResponseEntity getAllRequests() {
         return new ResponseEntity<>(requestService.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{requestId}", method = RequestMethod.GET)
-    public ResponseEntity getResquestById(@PathVariable("requestId") Long requestId){
+    public ResponseEntity getRequestById(@PathVariable("requestId") Long requestId) {
         return new ResponseEntity<>(requestService.findById(requestId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void saveRequest(@RequestBody RequestResource requestResource){
+    public void saveRequest(@RequestBody RequestResource requestResource) {
         requestService.saveRequest(requestResource);
     }
 
