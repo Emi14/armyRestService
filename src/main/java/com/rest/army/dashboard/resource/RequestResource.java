@@ -1,5 +1,6 @@
 package com.rest.army.dashboard.resource;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ public class RequestResource {
     private MissionResource mission;
     private EmployeeResource employee;
     private RequestTypeResource reportType;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dispatchDate;
     private String description;
 }
