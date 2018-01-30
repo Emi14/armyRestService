@@ -27,11 +27,11 @@ public class Battleground {
     @Column(name = "id_teatru")
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_tara")
     private Country country;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_maresal")
     private Employee employee;
 
