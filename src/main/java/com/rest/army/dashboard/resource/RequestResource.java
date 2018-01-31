@@ -16,7 +16,7 @@ public class RequestResource {
     private Long id;
     private MissionResource mission;
     private EmployeeResource employee;
-    private RequestTypeResource reportType;
+    private RequestTypeResource requestType;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dispatchDate;
     private String description;
